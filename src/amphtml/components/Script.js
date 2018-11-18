@@ -9,9 +9,20 @@ const Script = ({ extension, isCustomTemplate }) => {
       {...{
         [`custom-${isCustomTemplate ? "template" : "element"}`]: extension
       }}
-      src={`https://cdn.ampproject.org/v0/${extension}-0.1.js`}
+      src={`https://cdn.ampproject.org/v0/${extension}-${versionForExtension(
+        extension
+      )}.js`}
     />
   );
+};
+
+const versionForExtension = extension => {
+  switch (extension) {
+    case "amp-mustache":
+      return "0.2";
+    default:
+      return "0.1";
+  }
 };
 
 Script.defaultProps = {
