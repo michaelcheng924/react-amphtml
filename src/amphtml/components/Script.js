@@ -1,21 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-const Script = ({ extension, isCustomTemplate }) => (
-  <script
-    async
-    {...{ [`custom-${isCustomTemplate ? 'template' : 'element'}`]: extension }}
-    src={`https://cdn.ampproject.org/v0/${extension}-0.1.js`}
-  />
-);
+const Script = ({ extension, isCustomTemplate }) => {
+  console.log("======", extension);
+  return (
+    <script
+      async
+      {...{
+        [`custom-${isCustomTemplate ? "template" : "element"}`]: extension
+      }}
+      src={`https://cdn.ampproject.org/v0/${extension}-0.1.js`}
+    />
+  );
+};
 
 Script.defaultProps = {
-  isCustomTemplate: false,
+  isCustomTemplate: false
 };
 
 Script.propTypes = {
   extension: PropTypes.string.isRequired,
-  isCustomTemplate: PropTypes.bool,
+  isCustomTemplate: PropTypes.bool
 };
 
 export default Script;
