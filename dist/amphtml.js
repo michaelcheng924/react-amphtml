@@ -14,7 +14,6 @@ var Script = function Script(_ref) {
   var extension = _ref.extension,
       isCustomTemplate = _ref.isCustomTemplate;
 
-  console.log("======", extension);
   return React__default.createElement("script", __chunk_1._extends({
     async: true
   }, __chunk_1.defineProperty({}, "custom-" + (isCustomTemplate ? "template" : "element"), extension), {
